@@ -1,0 +1,22 @@
+{
+    "sourceFile": "autonote_flask.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1642194396944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1642194536532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,5 @@\n app.route('/', methods=['POST', 'GET'])\r\n def extract():\r\n     text = request.form['text']\r\n     notes = an.extract(text)\r\n-    return render_\n\\ No newline at end of file\n+    return render_t\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1642194396944,
+            "name": "Commit-0",
+            "content": "import autonote as an\r\nfrom flask import Flask, render_template, request\r\n\r\napp = Flask(__name__)\r\n\r\n@app.route('/')\r\ndef index():\r\n    return render_template('index.html')\r\n\r\napp.route('/', methods=['POST', 'GET'])\r\ndef extract():\r\n    text = request.form['text']\r\n    notes = an.extract(text)\r\n"
+        }
+    ]
+}

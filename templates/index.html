@@ -1,0 +1,120 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AutoNote</title>
+</head>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto+Mono&display=swap');
+
+	details[open] summary~* {
+		animation: sweep .5s ease-in-out;
+	}
+
+	@keyframes sweep {
+		0% {
+			opacity: 0;
+			transform: translateY(0px)
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(10px)
+		}
+	}
+
+	body {
+		padding: 10px;
+		margin: 10px;
+		user-select: none;
+		height: 100%;
+		background: #222222;
+		background-repeat: no-repeat;
+		font-family: "Roboto Mono";
+		color: white;
+
+	}
+
+	a {
+		text-decoration: none;
+		color: lightcoral
+	}
+
+	.secret {
+		color: white
+	}
+
+	a:hover {
+		font-weight: bold;
+	}
+
+	button {
+		margin: 2px;
+		font-family: 'Roboto Mono';
+		font-size: 14;
+		border-radius: 5px;
+		border: 2px solid darkcyan;
+		color: lightgray;
+		background-color: #222222;
+		transition: background 200ms, color 200ms;
+
+	}
+
+
+
+	button:hover {
+		background-color: #444444;
+		color: white;
+	}
+
+	ol {
+		list-style-type: none;
+	}
+
+	textarea {
+		width: 100%;
+		border: 2px solid darkcyan;
+		background-color: #222222;
+		color: white;
+		font-family: 'Times New Roman', Times, serif;
+		border-radius: 5px;
+	}
+</style>
+
+<body>
+	<h1>AutoNote</h1>
+	<h2>Automatically take notes on pieces of text</h2>
+	<p>Enter the text that you want to take notes on below. </p>
+	<p><strong>IMPORTANT: Make sure that each paragraph of your text is on ONE LINE. Spaces after periods in a sentence are fine, but don't put spaces after periods anywhere else. </strong>
+    <p>Use <strong>>></strong> to create headings in your notes. For example, <strong>>>Section A</strong> will show as <h3>Section A</h3></p>
+    <p>The program takes notes on important dates, numerical figures, and quotes. It also picks out the most relevant details from the text.</p>
+    <form action='/notes', method='POST'>
+        <label for='text'>Enter Text: </label><br>
+        <textarea id='text' name='text' rows=20 cols=100></textarea><br>
+        <button type='submit'>Take Notes</button>
+    </form>
+    <details id='notes'>
+        <summary>Show / hide notes</summary>
+        <ul>
+        {% for note in notes %}
+        {% if note == '' %}
+            <p></p>
+        {% elif '>>' in note %}
+        <h3>{{ note[2:] }}</h3>
+        {% else %}
+        <li>{{ note }}</li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+    </details>
+<br>
+
+</body>
+<footer>
+<p>By Prajwal Agrawal</p>
+<p>My GitHub: <a target='_blank' href='https://github.com/kidkoder432/'>https://github.com/kidkoder432/</a></p>
+<p>My Code Hub: <a target='_blank' href='https://hub.prajwalagrawal.repl.co'>https://hub.prajwalagrawal.repl.co</a></p>
+</footer>
+<br><br>
+</html>

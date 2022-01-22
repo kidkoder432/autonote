@@ -1,0 +1,78 @@
+{
+    "sourceFile": "templates/index.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1642194566221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1642194575459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <html lang=\"en\">\r\n <head>\r\n     <meta charset=\"UTF-8\">\r\n     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n+    <meta name=\"viewport\" content=\"width=AutoNote, initial-scale=1.0\">\r\n     <title>Document</title>\r\n </head>\r\n <body>\r\n     \r\n"
+                },
+                {
+                    "date": 1642194596138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <html lang=\"en\">\r\n <head>\r\n     <meta charset=\"UTF-8\">\r\n     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n-    <meta name=\"viewport\" content=\"width=AutoNote, initial-scale=1.0\">\r\n-    <title>Document</title>\r\n+    <meta name=\"viewport\" content=\"width=100, initial-scale=1.0\">\r\n+    <title>AautoNote</title>\r\n </head>\r\n <body>\r\n     \r\n </body>\r\n"
+                },
+                {
+                    "date": 1642194601631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <html lang=\"en\">\r\n <head>\r\n     <meta charset=\"UTF-8\">\r\n     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n-    <meta name=\"viewport\" content=\"width=100, initial-scale=1.0\">\r\n-    <title>AautoNote</title>\r\n+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n+    <title>Document</title>\r\n </head>\r\n <body>\r\n     \r\n </body>\r\n"
+                },
+                {
+                    "date": 1642194609526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n <head>\r\n     <meta charset=\"UTF-8\">\r\n     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n-    <title>Document</title>\r\n+    <title>AutoNote</title>\r\n </head>\r\n <body>\r\n     \r\n </body>\r\n"
+                },
+                {
+                    "date": 1642194620019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,7 @@\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n     <title>AutoNote</title>\r\n </head>\r\n <body>\r\n-    \r\n+    <h1></h1>\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194625503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,7 @@\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n     <title>AutoNote</title>\r\n </head>\r\n <body>\r\n-    <h1></h1>\r\n+    <h1>AutoNote</h1>\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194634903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,7 @@\n     <title>AutoNote</title>\r\n </head>\r\n <body>\r\n     <h1>AutoNote</h1>\r\n+    <h2>Automatically take </h2>\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194645610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,7 +6,7 @@\n     <title>AutoNote</title>\r\n </head>\r\n <body>\r\n     <h1>AutoNote</h1>\r\n-    <h2>Automatically take </h2>\r\n+    <h2>Automatically take notes on pieces of text</h2>\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194654207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,7 @@\n </head>\r\n <body>\r\n     <h1>AutoNote</h1>\r\n     <h2>Automatically take notes on pieces of text</h2>\r\n+    \r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194663820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,7 +7,7 @@\n </head>\r\n <body>\r\n     <h1>AutoNote</h1>\r\n     <h2>Automatically take notes on pieces of text</h2>\r\n-    \r\n+    <form\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194670226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,7 +7,9 @@\n </head>\r\n <body>\r\n     <h1>AutoNote</h1>\r\n     <h2>Automatically take notes on pieces of text</h2>\r\n-    <form\r\n+    <form>\r\n+        <\r\n+    </form>\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194676092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,8 @@\n <body>\r\n     <h1>AutoNote</h1>\r\n     <h2>Automatically take notes on pieces of text</h2>\r\n     <form>\r\n-        <\r\n+        <label for=''\r\n     </form>\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194685104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,8 @@\n <body>\r\n     <h1>AutoNote</h1>\r\n     <h2>Automatically take notes on pieces of text</h2>\r\n     <form>\r\n-        <label for=''\r\n+        <label for='text'>Enter Text</label>\r\n     </form>\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194695079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,8 @@\n     <h1>AutoNote</h1>\r\n     <h2>Automatically take notes on pieces of text</h2>\r\n     <form>\r\n         <label for='text'>Enter Text: </label>\r\n-        \r\n+        <\r\n     </form>\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1642194872656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     <details id='notes'>\r\n         <summary>Show / hide notes</summary>\r\n         <div>\r\n             {% for note in notes %}\r\n-            {$ %}\r\n+            {% %}\r\n         </div>\r\n     </details>\r\n </body>\r\n </html>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1642194566221,
+            "name": "Commit-0",
+            "content": "<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Document</title>\r\n</head>\r\n<body>\r\n    \r\n</body>\r\n</html>"
+        }
+    ]
+}
