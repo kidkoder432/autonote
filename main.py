@@ -1,3 +1,5 @@
+# AutoNote site code and router
+
 import autonote as an
 from flask import Flask, render_template, request
 
@@ -15,5 +17,3 @@ def extract():
     notes = an.extract(text)
     print(notes)
     return render_template('index.html', notes=notes)
-
-app.run('0.0.0.0', 8080)

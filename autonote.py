@@ -1,7 +1,6 @@
 """
 autonote - A program to automatically take notes in textbooks.
 """
-from unittest.mock import sentinel
 import nltk  # Import NLTK for language processing
 from string import punctuation
 
