@@ -40,13 +40,8 @@ def extract(text):
         if ">>" in para:
             notes.append(para)  # Append headings; we'll render them later
             continue
-        maxSent = len(nltk.sent_tokenize(para)) - 3 if len(nltk.sent_tokenize(para)) > 2 else 1
-        topicSent = nltk.sent_tokenize(para)[0]  # para[0:para.find('. ')]
+        maxSent = len(nltk.sent_tokenize(para)) - 3 if len(nltk.sent_tokenize(para)) > 3 else 1
         totalSent = 1
-        # Use the first sentence of each paragraph as a topic sentence (if it isn't already in the notes)
-        if topicSent not in notes:
-            notes.append(topicSent)
-
         # Get summary of paragraph
         freqs = {}
         sentweights = {}
