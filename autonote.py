@@ -1,11 +1,140 @@
 """
 autonote - A program to automatically take notes in textbooks.
 """
-import nltk  # Import NLTK for language processing
+from pickle import STOP
 from string import punctuation
+import re
 
-nltk.download("stopwords", quiet=True)
-nltk.download("punkt", quiet=True)
+# List of stopwords
+STOPWORDS = """i 
+me
+my
+myself
+we
+our
+ours
+ourselves
+you
+your
+yours
+yourself
+yourselves
+he
+him
+his
+himself
+she
+her
+hers
+herself
+it
+its
+itself
+they
+them
+their
+theirs
+themselves
+what
+which
+who
+whom
+this
+that
+these
+those
+am
+is
+are
+was
+were
+be
+been
+being
+have
+has
+had
+having
+do
+does
+did
+doing
+a
+an
+the
+and
+but
+if
+or
+because
+as
+until
+while
+of
+at
+by
+for
+with
+about
+against
+between
+into
+through
+during
+before
+after
+above
+below
+to
+from
+up
+down
+in
+out
+on
+off
+over
+under
+again
+further
+then
+once
+here
+there
+when
+where
+why
+how
+all
+any
+both
+each
+few
+more
+most
+other
+some
+such
+no
+nor
+not
+only
+own
+same
+so
+than
+too
+very
+s
+t
+can
+will
+just
+don
+should
+now""".split('\n')
+
+
 
 def multiinput(prompt):
     print(prompt)
@@ -20,13 +149,21 @@ def multiinput(prompt):
         contents.append(line)
     return contents
 
-stopw = nltk.corpus.stopwords.words()
+stopw = STOPWORDS
 
+def sent_tok(para):
+    """A function using regex to split a paragraph into words. """
+    return re.split(r'[.”] ')
+
+def word_tok(sent): 
+    """A more readable wrapper around split()"""
+    return sent.split()
+    
 
 def prep(text):
     text = text.replace('\r\n', ' ')
     text = [
-        word.lower() for word in text.split() if word.lower() not in stopw
+        word.lower() for word in word_tok if word.lower() not in stopw
     ]  # Remove unnecessary words
     # text = [char for char in text if char not in punctuation]  # Remove punctuation
     return text
@@ -40,12 +177,9 @@ def extract(text):
         if ">>" in para:
             notes.append(para)  # Append headings; we'll render them later
             continue
-        maxSent = len(nltk.sent_tokenize(para)) - 3 if len(nltk.sent_tokenize(para)) > 2 else 1
-        topicSent = nltk.sent_tokenize(para)[0]  # para[0:para.find('. ')]
-        totalSent = 1
-        # Use the first sentence of each paragraph as a topic sentence (if it isn't already in the notes)
-        if topicSent not in notes:
-            notes.append(topicSent)
+        sents = sent_tok(para)
+        maxSent = len(sents) - 3 if len(sents) > 3 else 1
+        totalSent = 0
 
         # Get summary of paragraph
         freqs = {}
@@ -55,7 +189,7 @@ def extract(text):
             freqs.setdefault(word, 0)
             freqs[word] += 0.2
 
-        for sent in nltk.sent_tokenize(para):
+        for sent in sents:
             for word in freqs:
                 if word in sent:
                     sentweights.setdefault(sent, 0)
@@ -79,14 +213,14 @@ def extract(text):
 
 
         # Get quotes & numerical info
-        for sent in nltk.sent_tokenize(para):
+        for sent in sents:
             
             if '“' in sent or '”' in sent:
                 if sent not in notes and totalSent <= maxSent:
                     notes.append(sent)
                     totalSent += 1
                     continue
-            for word in nltk.word_tokenize(sent):
+            for word in word_tok(sent):
                 word = "".join(
                     [char for char in word if char not in punctuation]
                 )  # Remove punctuation (so 100,000 is read as 100000)
