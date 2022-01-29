@@ -131,8 +131,9 @@ will
 just
 don
 should
-now""".split('\n')
-
+now""".split(
+    "\n"
+)
 
 
 def multiinput(prompt):
@@ -148,19 +149,22 @@ def multiinput(prompt):
         contents.append(line)
     return contents
 
+
 stopw = STOPWORDS
 
-def sent_tok(para):
-    """A function using regex to split a paragraph into words. """
-    return re.split(r'[.”] ')
 
-def word_tok(sent): 
+def sent_tok(para):
+    """A function using regex to split a paragraph into words."""
+    return re.split(r"[.”] ", para)
+
+
+def word_tok(sent):
     """A more readable wrapper around split()"""
     return sent.split()
-    
+
 
 def prep(text):
-    text = text.replace('\r\n', ' ')
+    text = text.replace("\r\n", " ")
     text = [
         word.lower() for word in word_tok if word.lower() not in stopw
     ]  # Remove unnecessary words
@@ -197,7 +201,7 @@ def extract(text):
         sentweights = {
             k: v for k, v in sorted(sentweights.items(), key=lambda item: item[1])
         }  # One-liner from SO: sort dict by value
-        
+
         summSent = list(sentweights.keys())[-1]
         if summSent not in notes and totalSent <= maxSent:
             notes.append(summSent)
@@ -209,12 +213,10 @@ def extract(text):
             notes.append(unexp)
             totalSent += 1
 
-
-
         # Get quotes & numerical info
         for sent in sents:
-            
-            if '“' in sent or '”' in sent:
+
+            if "“" in sent or "”" in sent:
                 if sent not in notes and totalSent <= maxSent:
                     notes.append(sent)
                     totalSent += 1
@@ -223,37 +225,41 @@ def extract(text):
                 word = "".join(
                     [char for char in word if char not in punctuation]
                 )  # Remove punctuation (so 100,000 is read as 100000)
-                if word[:-1].isnumeric():  # We're using word[:-1] so that words such as 1800s are valid
+                if word[
+                    :-1
+                ].isnumeric():  # We're using word[:-1] so that words such as 1800s are valid
                     if sent not in notes and totalSent <= maxSent:
-                        notes.append(sent)  # Add the sentence to the notes list if it is not already there.
+                        notes.append(
+                            sent
+                        )  # Add the sentence to the notes list if it is not already there.
                         totalSent += 1
-
 
     return notes
 
-if __name__ == '__main__':
-    
+
+if __name__ == "__main__":
+
     # Get text from user input
     text = multiinput("Enter text to take notes on: ")
-    
+
     with open("notes.md", "w", encoding="utf8") as f:
         print("\033[1m\033[1mHISTORY CLASS NOTES")
-        f.write('# **History Class Notes**\n\n')
-    
+        f.write("# **History Class Notes**\n\n")
+
         title = "The Republicans Take Power"
         f.write(f"## **{title}**\n")
-        print(title + '\033[0m')
-        
+        print(title + "\033[0m")
+
         for note in extract(text):
-        
+
             if not note:
                 continue
-        
-            if note.startswith('>>'):
-                print(f'\n\033[1m{note[2:]}\033[0m')  # Make headings bold
-                f.write(f'\n### {note[2:]}\n\n')
-        
+
+            if note.startswith(">>"):
+                print(f"\n\033[1m{note[2:]}\033[0m")  # Make headings bold
+                f.write(f"\n### {note[2:]}\n\n")
+
             else:
-                f.write(f'- {note}\n')
+                f.write(f"- {note}\n")
 
     f.close()
