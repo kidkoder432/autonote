@@ -166,7 +166,7 @@ def word_tok(sent):
 def prep(text):
     text = text.replace("\r\n", " ")
     text = [
-        word.lower() for word in word_tok() if word.lower() not in stopw
+        word.lower() for word in word_tok(text) if word.lower() not in stopw
     ]  # Remove unnecessary words
     # text = [char for char in text if char not in punctuation]  # Remove punctuation
     return text
