@@ -177,10 +177,15 @@ def extract(text):
         if ">>" in para:
             notes.append(para)  # Append headings; we'll render them later
             continue
+<<<<<<< HEAD
         sents = sent_tok(para)
         maxSent = len(sents) - 3 if len(sents) > 3 else 1
         totalSent = 0
 
+=======
+        maxSent = len(nltk.sent_tokenize(para)) - 3 if len(nltk.sent_tokenize(para)) > 3 else 1
+        totalSent = 1
+>>>>>>> 12256051ac85202500fbc742810c5c1dc8f693de
         # Get summary of paragraph
         freqs = {}
         sentweights = {}
