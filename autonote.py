@@ -154,7 +154,7 @@ stopw = STOPWORDS
 
 
 def sent_tok(para):
-    """A function using regex to split a paragraph into words."""
+    """A function using regex to split a paragraph into sentences."""
     return re.split(r"[.”] ", para)
 
 
@@ -180,6 +180,7 @@ def extract(text):
         if ">>" in para:
             notes.append(para)  # Append headings; we'll render them later
             continue
+        para = ' '.join(para.split('\n'))
         sents = sent_tok(para)
         maxSent = len(sents) - 3 if len(sents) > 3 else 1
         totalSent = 0
